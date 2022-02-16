@@ -1,0 +1,55 @@
+@model asp_a2.Models.PersonModel;
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="card text-center">
+  <div class="card-header">Person details</div>
+  <div class="card-body">
+    <p class="card-text">
+        <table class="table">
+    <thead>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Id)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.FirstName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.LastName)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.Gender)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.DateOfBirth)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.BirthPlace)
+            </td>
+
+            <td>
+                @Html.DisplayFor(model => model.IsGraduated)
+            </td>
+
+        </tr>
+        
+    </thead>
+    </table>
+    </p>
+    <a class="btn btn-primary" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+  </div>
+</div>
+
