@@ -8,9 +8,9 @@ namespace asp_a2.Controllers;
 public class PeopleController : Controller
 {
     private readonly ILogger<PeopleController> _logger;
-    private IPersonModel _iperson;
+    private IPerson _iperson;
 
-    public PeopleController(ILogger<PeopleController> logger, IPersonModel iperson)
+    public PeopleController(ILogger<PeopleController> logger, IPerson iperson)
     {
         _logger = logger;
         _iperson = iperson;
@@ -21,7 +21,7 @@ public class PeopleController : Controller
         return View(_iperson.List());
     }
 
-        public IActionResult Details(int id){
+    public IActionResult Details(int id){
         var person = _iperson.List().Where(p => p.Id == id).FirstOrDefault();
         return View(person);
     }
@@ -64,6 +64,8 @@ public class PeopleController : Controller
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 
+    // cookie khong set expire time se bi tat khi dong browse
+    // kiem tra cookie F12 -> Applications -> Storage-Cookies
     private void SetCookie(string key, string value){
         CookieOptions options = new CookieOptions();
         Response.Cookies.Append(key,value);

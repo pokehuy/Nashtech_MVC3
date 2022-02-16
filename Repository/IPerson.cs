@@ -6,7 +6,7 @@ using asp_a2.Models;
 
 namespace asp_a2.Repository
 {
-    public interface IPersonModel
+    public interface IPerson
     {
          List<PersonModel> List();
          void Create(PersonModel per);

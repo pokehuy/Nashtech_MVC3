@@ -1,11 +1,11 @@
 using asp_a2.Repository;
-using asp_a2.Models;
+using asp_a2.Implement;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<IPersonModel,PersonModel>();
+builder.Services.AddTransient<IPerson,Person>();
 
 var app = builder.Build();
 
